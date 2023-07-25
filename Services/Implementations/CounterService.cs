@@ -11,7 +11,7 @@ namespace WebProject.Services.Implementations
         private int _counter;
         public int IncreaseCounter()
         {
-            _counter++;
+            ++_counter;
             return _counter;
         }
     }

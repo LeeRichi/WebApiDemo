@@ -8,6 +8,7 @@ using WebProject.Entities;
 using WebProject.Services.Abstractions;
 using AutoMapper;
 using System.Text;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace WebProject.Services.Implementations
 {
@@ -40,6 +41,10 @@ namespace WebProject.Services.Implementations
         {
             var foundUser = _users.FirstOrDefault(x => x.Id == id);
             //var userDto = new UserDto { Name = foundUser.Name, Email = foundUser.Email, Password = foundUser.Password };
+            /* if (foundUser is null)
+            {
+                throw new Exception("error not found");
+            } */
             var userDto = _mapper.Map<UserDto>(foundUser);
             return userDto;
         }

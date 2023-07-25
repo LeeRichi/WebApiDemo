@@ -20,8 +20,15 @@ namespace WebProject.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public UserDto GetUserById(int id)
+        [ProducesResponseType(statusCode: 500)]
+        [ProducesResponseType(statusCode: 200)]
+        public ActionResult<UserDto> GetUserById(int id)
         {
+/*             var foundUser = _userService.GetUserById(id);
+            if(foundUser == null)
+            {
+                return NotFound();
+            } */
             return _userService.GetUserById(id);
         }
 

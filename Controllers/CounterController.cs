@@ -13,7 +13,7 @@ namespace WebProject.Controllers
     {
         private readonly ICounterService _counterService;
 
-        public CounterController([FromServices] ICounterService counterService)
+        public CounterController(ICounterService counterService)
         {
             _counterService = counterService;
         }
@@ -21,10 +21,12 @@ namespace WebProject.Controllers
         [HttpGet("increase")]
         public ActionResult IncreaseCounter()
         {
+            /* counter middlweare : increase counter from 0 to 1 -> counter controller: increase counter from 1 to 2 */
+            /* transient service: new instance inside middleware, new intance inside controller */
             var counter1 = _counterService.IncreaseCounter(); // 1 new instance if transient
-            var counter2 = _counterService.IncreaseCounter(); // 1 new instance if transient
-            var counter3 = _counterService.IncreaseCounter();
-            return Ok(new { counter1, counter2, counter3 });
+/*             var counter2 = _counterService.IncreaseCounter(); // 1 new instance if transient
+            var counter3 = _counterService.IncreaseCounter(); */
+            return Ok(new { counter1});
         }
     }
 }
