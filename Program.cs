@@ -1,11 +1,15 @@
 // build WebApplicationBuilder object
 using WebProject.Controllers;
+using WebProject.Database;
 using WebProject.Entities;
 using WebProject.Middlewares;
 using WebProject.Services.Abstractions;
 using WebProject.Services.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Add database into the application
+builder.Services.AddDbContext<DatabaseContext>();
 
 // Add services to the container
 builder.Services.AddControllers();
