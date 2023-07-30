@@ -7,6 +7,5 @@ namespace WebProject.Entities
         public float Price { get; set; }
         public int Inventory { get; set; }
         public string? category { get; set;}
-
     }
 }
